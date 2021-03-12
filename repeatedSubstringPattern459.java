@@ -4,8 +4,8 @@ class repeatedSubstringPattern459 {
     //3. Knuth-Morris-Pratt Algorithm (KMP)
 
 //Solution: 优化
-    //Time = O(n) 最大？,虽然有两个for loop, 但k只会执行valid的时候？ 还是O（n)
-    //Space = O(1) or O(n) Substring
+    //Time = O(nlogN) 省时间但是没有数量级上的差别
+    //Space = O(1)
     public boolean repeatedSubstringPattern(String s) {
     
         int len = s.length();
@@ -34,8 +34,9 @@ class repeatedSubstringPattern459 {
     }
 
 //Solution. 我能想到明白的一种
-//Time = O(n^2) 最大？,虽然有两个for loop, 但k只会执行valid的时候？ 还是O（n)
-//Space = O(1) or O(n) Substring
+//Time = Nlog(n) ,虽然有两个for loop, 但k只会执行valid的时候？ 还是O（n)
+    // i = 1， 52line, 执行n次， i = 2， 执行 n/2 sum => Nlog(n) 上限
+//Space = O(1)
     public boolean repeatedSubstringPattern(String s) {
 //化验证为查找
         int len = s.length();

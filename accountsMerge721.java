@@ -15,7 +15,7 @@ class accountsMerge721 {
         //build graph 错误写法
         for(List<String> account : accounts) {
             String username = account.get(0);
-
+            // 只能从1开始走，list可能一共只有2个元素
             for(int i = 1; i < account.size(); i++) {
                 String curr = account.get(i);
                 String pre = account.get(i - 1);
@@ -31,25 +31,6 @@ class accountsMerge721 {
                 graph.get(curr).add(pre);
                 graph.get(pre).add(curr);
             }
-            /* 1.不懂这段为什么和上面不想等
-            for(int i = 2; i < account.size(); i++) {
-                String curr = account.get(i);
-                String pre = account.get(i - 1);
-                if(!email.containsKey(curr)) {
-                    email.put(curr, new HashSet<>());
-                }
-                email.get(curr).add(pre);
-                
-                if(!email.containsKey(pre)) {
-                   email.put(pre, new HashSet<>());
-                }
-                email.get(pre).add(curr);
-
-                if(i == 2) {
-                    name.putIfAbsent(pre, username);
-                }
-                name.putIfAbsent(curr,username);
-            }*/
         }
         //remeber check visited
         HashSet<String> visited = new HashSet<>();
