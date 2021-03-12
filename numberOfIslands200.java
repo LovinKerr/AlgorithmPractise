@@ -1,7 +1,7 @@
 class numberOfIslands200 {
 //dfs solution
-    //time = O(mn * k) 每个点操作recursion 一次操作4，recursion 次数k
-    //space = recursion stack 占用的空间 ？ O(log mn)?
+    //time = 每个点走一次=> O(mn) mn点的个数(标准），看每个点的操作， 没有重复走； O(mn * k) 每个点操作recursion 一次操作4，recursion 次数k
+    //space = 对于每层stack O(1)的空间；最多mn层 O（mn) recursion stack 占用的空间 
     
     int[][] direction = new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
     public int numIslands(char[][] grid) {
@@ -112,7 +112,7 @@ class numberOfIslands200 {
                 count = total;
             }
             
-        //路径压缩型, find father
+        //路径压缩型, find father )
             private int find(int x) {
                 //直到找到一个father为自己的node， 最大的大哥
                 if(father[x] == x) {
@@ -120,7 +120,7 @@ class numberOfIslands200 {
                 }
                 return father[x] = find(father[x]); 
             }
-        //合并
+        //合并 接近O(1)
             public void connect(int a, int b) {
                 int father_a = find(a);
                 int father_b = find(b);
