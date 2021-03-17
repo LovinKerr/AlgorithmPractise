@@ -1,4 +1,4 @@
-class invertBinaryTree226 {
+class _226_invertBinaryTree {
 //BFS
     //Time = O(n) scan each node
     //Space = O(n) queue's size, contains all node in one layer
@@ -12,7 +12,7 @@ class invertBinaryTree226 {
         
         while(!queue.isEmpty()){
             TreeNode curr = queue.poll();
-            TreeNode temp = curr.left;
+            TreeNode temp = curr.left;//1.为什么这里可以不check null
             curr.left = curr.right;
             curr.right = temp;
             
@@ -26,7 +26,7 @@ class invertBinaryTree226 {
         return root;
     }
 
-//DFS
+//DFS Bottom Up
     //Time = O(n) scan each node
     //Space = O(logN) stack of recursion
     public TreeNode invertTree(TreeNode root) {
@@ -43,5 +43,22 @@ class invertBinaryTree226 {
         root.left = right;
         root.right = left;
         return root;
+    }
+
+//Top Down,从上到下，每次都交换下
+    public TreeNode invertTree(TreeNode root) {
+        helper(root);
+        return root;
+        
+    }
+    private void helper(TreeNode node) {
+        if(node == null) {
+            return;
+        }
+        TreeNode temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+        helper(node.left);
+        helper(node.right);
     }
 }
