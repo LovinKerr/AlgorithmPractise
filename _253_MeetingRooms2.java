@@ -9,7 +9,7 @@ class _253_MeetingRooms2 {
         
         //test1:[[4,9],[4,17],[9,10]]
         Arrays.sort(intervals, (a,b) -> Integer.compare(a[0], b[0])); 
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> a-b); //放end
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> a-b);
         pq.offer(intervals[0][1]);
         
         for(int i = 1; i < intervals.length; i++) {

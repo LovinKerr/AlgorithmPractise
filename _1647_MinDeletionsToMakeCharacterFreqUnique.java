@@ -1,6 +1,6 @@
 
 class _1647_MinDeletionsToMakeCharacterFreqUnique {
-    //?2.第二种时间复杂度更高？
+    //
 
     // count each character first. For each 26 characters, check if it's count is already used. If so, delete characters until you find unused count, or reach zero.
     //Time = O(n) 第一个for loop走完s的长度
@@ -34,6 +34,8 @@ class _1647_MinDeletionsToMakeCharacterFreqUnique {
 //greedy? 这题为什么是greedy
     //Time = O(nLogN) sort了？ 加上第一个for loop走完整个s
     //Sapce = O(1) 26 is constant
+
+    // 相比solution 1, 时间空间都更efficiency(常数范围内1与几k)
     public int minDeletions(String s) {
         int[] freq = new int[26];
         for (char c : s.toCharArray()) {
